@@ -69,7 +69,7 @@ AuthorizationRequest authorizationRequest = new AuthorizationRequest();
 authorizationRequest.setMerchantKey("TEST-001");
 authorizationRequest.setAccountNumber("4242424242424242");
 authorizationRequest.setExpirationMonth("07");
-authorizationRequest.setExpirationYear("2027");
+authorizationRequest.setExpirationYear("27");
 authorizationRequest.setCustomerName("John Doe");
 authorizationRequest.setCustomerID("mamedina");
 authorizationRequest.setAccountType(AccountTypes.DebitOrCredit.getId());
