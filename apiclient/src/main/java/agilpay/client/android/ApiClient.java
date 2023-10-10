@@ -1,7 +1,5 @@
 package agilpay.client.android;
 
-import androidx.annotation.NonNull;
-
 import java.util.Calendar;
 import java.util.Date;
 import java.util.UUID;
@@ -412,7 +410,7 @@ public class ApiClient {
         return Boolean.TRUE.equals(response.body());
     }
 
-    public void deleteCustomerCard(DeleteTokenRequest request, ApiCallback<String> callback){
+    public void deleteCustomerCard(final DeleteTokenRequest request, final ApiCallback<String> callback){
         checkTokenExpiration(new Runnable() {
             @Override
             public void run() {
@@ -420,7 +418,7 @@ public class ApiClient {
 
                 call.enqueue(new Callback<String>() {
                     @Override
-                    public void onResponse(@NonNull Call<String> call, Response<String> response) {
+                    public void onResponse(Call<String> call, Response<String> response) {
                         if(!response.isSuccessful()){
                             callback.onFailure(Functions.getError(response));
                             return;

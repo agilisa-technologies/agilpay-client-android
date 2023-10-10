@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -12,9 +13,12 @@ import com.google.gson.Gson;
 
 import agilpay.client.android.ApiClient;
 import agilpay.client.android.R;
+import agilpay.client.android.enums.AccountTypes;
+import agilpay.client.android.models.AuthorizationRequest;
 import agilpay.client.android.models.CustomerAccount;
 import agilpay.client.android.models.DeleteTokenRequest;
 import agilpay.client.android.models.RegisterTokenRequest;
+import agilpay.client.android.models.Transaction;
 
 public class MainActivity extends AppCompatActivity {
     private EditText console;
@@ -111,6 +115,30 @@ public class MainActivity extends AppCompatActivity {
                     String deleteText = ApiClient.getInstance().deleteCustomerCardAsync(deleteTokenRequest);
 
                     writeTextToConsole("New card deleted from wallet: " + deleteText);
+
+
+                    AuthorizationRequest payRequest = new AuthorizationRequest();
+                    payRequest.setMerchantKey("TEST-001");
+                    payRequest.setAccountNumber("4242424242424242");
+                    payRequest.setExpirationMonth("07");
+                    payRequest.setExpirationYear("2027");
+                    payRequest.setCustomerName("John Doe");
+                    payRequest.setCustomerID("mamedina");
+                    payRequest.setAccountType(AccountTypes.DebitOrCredit.getId());
+                    payRequest.setCustomerEmail("test@gmail.com");
+                    payRequest.setZipCode("12345");
+                    payRequest.setAmount(20.50);
+                    payRequest.setCurrency("840");
+                    payRequest.setTax(0);
+                    payRequest.setInvoice("123465465");
+                    payRequest.setTransaction_Detail("payment information detail");
+
+
+                    Transaction transaction = ApiClient.getInstance().authorizePaymentAsync(payRequest);
+
+
+                    Log.d("PaynetClient", transaction.toString());
+
 
                 }catch(Exception e){
                     e.printStackTrace();
