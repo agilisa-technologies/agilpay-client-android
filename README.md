@@ -10,8 +10,8 @@ This library can be used by applications to perform operations on the Agilpay Ga
 Endpoint authentication uses OAUTH 2.0 standard
 
 This repository includes 2 projects
-* agilpay.client class: sample implementation to connect to Agilpay REST API
-* sample: android application to test agilpay.client class
+* agilpay.client.android.ApiClient class: sample implementation to connect to Agilpay REST API
+* sample: android application to test agilpay.client.android.ApiClient
 
 
 # Available endpoints
