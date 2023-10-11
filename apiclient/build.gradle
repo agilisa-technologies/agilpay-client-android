@@ -2,24 +2,45 @@ plugins {
     id 'com.android.library'
     id 'maven-publish'
 }
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                //from components.release
+                // You can then customize attributes of the publication as shown below.
+                groupId = 'com.agilisa'
+                artifactId = 'agilpay-client-android'
+                version = '1.0'
+                afterEvaluate {
+                    from components.release
+                }
+            }
+        }
+    }
+}
 
 android {
-    namespace 'agilpay.client.android'
+    namespace 'agilpay.client.android2'
     compileSdk 33
 
     defaultConfig {
         minSdk 23
         targetSdk 33
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
         aarMetadata {
             minCompileSdk = 23
         }
+        lintOptions {
+            checkReleaseBuilds false
+        }
     }
 
-    group = 'com.agilisa'
-    version = '1.0'
+    //group = 'com.agilisa'
+    //version = '1.0'
 
     buildTypes {
         release {
@@ -28,35 +49,20 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    publishing {
-        singleVariant('release') {
-            withSourcesJar()
-        }
-        /*publications {
-            release(MavenPublication) {
-                groupId = 'agilpay.client.android'
-                artifactId = 'agilpay-client-android'
-                version = '1.0'
-
-                afterEvaluate {
-                    from components.release
-                }
-            }
-        }*/
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 }
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.9.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    //implementation 'androidx.appcompat:appcompat:1.6.1'
+    //implementation 'com.google.android.material:material:1.9.0'
+    //testImplementation 'junit:junit:4.13.2'
+    //androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    //androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    //implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])
 }
