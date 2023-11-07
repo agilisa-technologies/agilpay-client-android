@@ -55,7 +55,6 @@ public class ApiClient {
     }
 
     public static void initialize(String apiUrl, final String clientId, final String clientSecret, InitCallback callback){
-
         if(getInstance().isInitialized()){
             return;
         }
