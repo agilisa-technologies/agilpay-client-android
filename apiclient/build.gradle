@@ -23,7 +23,7 @@ android {
         publishing {
             singleVariant('release') {
                 withSourcesJar()
-                withJavadocJar()
+                //withJavadocJar()
             }
         }
     }
@@ -48,7 +48,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 }
 
-afterEvaluate {
+/*afterEvaluate {
     publishing {
         publications {
             // Creates a Maven publication called "release".
@@ -62,4 +62,4 @@ afterEvaluate {
             }
         }
     }
-}
+}*/
