@@ -56,7 +56,7 @@ afterEvaluate {
                 // Applies the component for the release build variant.
                 from components.release
                 groupId = 'com.agilisa'
-                artifactId = 'agilpay-client-android'
+                //artifactId = 'agilpay-client-android'
                 version = '1.0'
                 artifact(bundleReleaseAar)
             }
