@@ -35,6 +35,25 @@ This repository includes 2 projects
 * recurringScheduleUpdate
 * registerToken
 
+# Setup
+* Step 1. Add the JitPack repository to your build file
+Add it in your root build.gradle at the end of repositories:
+``` java
+dependencyResolutionManagement {
+		repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+		repositories {
+			mavenCentral()
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+* Step 2. Add the dependency
+``` java
+dependencies {
+	        implementation 'com.github.agilisa-technologies:agilpay-client-android:1.0.1'
+	}
+```
+
 # Initializing library
 
 The environment URL must be supplied on initialize method
