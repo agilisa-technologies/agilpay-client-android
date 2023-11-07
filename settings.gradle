@@ -13,7 +13,9 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "agilpay-client-android"
-include ':sample'
+rootProject.name = "agilpay-client-android.sample"
+//include ':sample'
+if (!System.env.JITPACK)
+    include ':sample'
 include ':apiclient'
 project(':apiclient').name = 'agilpay-client-android'
