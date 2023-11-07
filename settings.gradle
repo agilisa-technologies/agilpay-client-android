@@ -14,6 +14,6 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "agilpay-client-android"
-//include ':sample'
+include ':sample'
 include ':apiclient'
 project(':apiclient').name = 'agilpay-client-android'
