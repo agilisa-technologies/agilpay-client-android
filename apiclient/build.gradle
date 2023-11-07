@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'agilpay.client.android2'
+    namespace 'agilpay.client.android'
     compileSdk 33
 
     defaultConfig {
